@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+</head>
+<body>
+    <!-- Prepare a Dom with size (width and height) for ECharts -->
+    <div id="main" style="height:400px"></div>
+    <!-- ECharts import -->
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        // configure for module loader
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        
+        // use
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar' // require the specific chart type
+            ],
+            function (ec) {
+                // Initialize after dom ready
+                var myChart = ec.init(document.getElementById('main')); 
+                
+                var option = {
+                    title:{
+                        text:'Jewish and Muslim population in Jerusalem, \n using ECHARTs:'
+                    },
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        data:["Jews in Jerusalem (in thousands)  -  click me"]
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : [
+            '1525',
+            '1538',
+            '1553',
+            '1838',
+            '1846',
+            '1851',
+            '1862',
+            '1876',
+            '1882',
+            '1885',
+            '1905',
+            '1922',
+            '1931',
+            '1944',
+            '1948',
+            '1953',
+            '1967',
+            '1980',
+            '1985',
+            '1987',
+            '1990',
+            '1995',
+            '2000',
+            '2004',
+            '2007',
+            '2011',
+            '2014',
+            '2016']
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value'
+                        }
+                    ],
+                    series : [
+                        {
+                            "name":"Jews in Jerusalem (in thousands)  -  click me",
+                            "type":"bar",
+                            "data":[
+                // jews in jerusalem in thousands:
+                1.194,
+                1.363,
+                1.958,
+                3.000,
+                7.515,
+                5.580,
+                8.000,
+                4.000,
+                9.000,
+                15.000,
+                13.300,
+                34.000,
+                51.200,
+                97.000,
+                100.000,
+                139.000,
+                195.700,
+                292.300,
+                327.700,
+                340.000,
+                378.200,
+                382.000,
+                448.800,
+                458.000,
+                489.480,
+                497.000,
+                534.000,
+                550.100,
+            ]
+                        }
+                    ]
+                };
+        
+                // Load data into the ECharts instance 
+                myChart.setOption(option); 
+            }
+        );
+    </script>
+</body>
